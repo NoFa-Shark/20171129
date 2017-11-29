@@ -14,6 +14,10 @@ class PostContollerTest extends TestCase
      */
     public function testPostCreatePage()
     {
-        $this->assertTrue(true);
+        $response = $this->get('posts/create');
+
+        $response->assertStatus(200)
+        ->assertViewIs('posts.create')
+        ->assertSeeText('新增');
     }
 }
